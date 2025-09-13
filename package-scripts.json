@@ -1,0 +1,64 @@
+{
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "tauri": "tauri",
+    "tauri dev": "tauri dev",
+    "tauri build": "tauri build",
+
+    "开发相关脚本": {
+      "dev:clean": "npm run clean && npm run tauri dev",
+      "dev:debug": "npm run tauri dev -- --verbose",
+      "dev:inspect": "npm run tauri dev -- --debug"
+    },
+
+    "构建相关脚本": {
+      "build:debug": "cd src-tauri && cargo build",
+      "build:release": "cd src-tauri && cargo build --release",
+      "build:all": "npm run build && npm run build:release",
+      "build:windows": "npm run tauri build -- --target x86_64-pc-windows-msvc",
+      "build:macos": "npm run tauri build -- --target x86_64-apple-darwin",
+      "build:linux": "npm run tauri build -- --target x86_64-unknown-linux-gnu"
+    },
+
+    "清理脚本": {
+      "clean": "npm run clean:node && npm run clean:rust && npm run clean:dist",
+      "clean:node": "rm -rf node_modules package-lock.json",
+      "clean:rust": "cd src-tauri && cargo clean",
+      "clean:dist": "rm -rf dist",
+      "clean:cache": "npm cache clean --force && cargo clean"
+    },
+
+    "代码质量": {
+      "lint": "eslint src --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
+      "format": "prettier --write src/",
+      "format:check": "prettier --check src/",
+      "rust:format": "cd src-tauri && cargo fmt",
+      "rust:lint": "cd src-tauri && cargo clippy",
+      "rust:check": "cd src-tauri && cargo check"
+    },
+
+    "测试脚本": {
+      "test": "vitest",
+      "test:ui": "vitest --ui",
+      "test:e2e": "playwright test",
+      "test:rust": "cd src-tauri && cargo test",
+      "test:coverage": "vitest --coverage"
+    },
+
+    "部署脚本": {
+      "package": "npm run tauri build",
+      "package:installer": "npm run tauri build -- --bundles msi,dmg,deb",
+      "package:portable": "npm run tauri build -- --bundles appimage"
+    },
+
+    "工具脚本": {
+      "icon": "tauri icon --help",
+      "info": "npm run tauri -- info",
+      "version": "npm run tauri -- version",
+      "doctor": "npm run tauri -- doctor",
+      "update": "npm update && cargo update"
+    }
+  }
+}

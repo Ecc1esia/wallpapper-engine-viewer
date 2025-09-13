@@ -1,0 +1,36 @@
+# Build artifacts
+dist/
+src-tauri/target/
+
+# Dependencies
+node_modules/
+
+# Logs
+*.log
+logs/
+
+# Environment files
+.env*
+
+# IDE files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Package manager files
+package-lock.json.backup
+yarn.lock.backup
+
+# Temporary files
+*.tmp
+*.temp
+*.cache
+
+# Test coverage
+coverage/
+
+# Tauri generated files
+src-tauri/gen/

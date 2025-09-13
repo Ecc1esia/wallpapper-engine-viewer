@@ -1,0 +1,77 @@
+name: ✨ 功能请求
+description: 建议一个新功能
+title: "[Feature] "
+labels: ["enhancement"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢您建议新功能！请花时间填写此表格。
+  - type: textarea
+    id: summary
+    attributes:
+      label: 功能摘要
+      description: 简要描述您想要的功能
+      placeholder: 一句话总结这个功能
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: 问题描述
+      description: 这个功能解决了什么问题？
+      placeholder: |
+        我在使用应用时遇到了一个问题...
+        现有的解决方案是...
+        但是这样不够好，因为...
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: 建议的解决方案
+      description: 详细描述您希望的功能如何工作
+      placeholder: |
+        我希望应用能够...
+        这样用户就可以...
+        具体的工作流程是...
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: 替代方案
+      description: 您是否考虑过任何替代方案或解决方案？
+      placeholder: 我考虑过...
+  - type: dropdown
+    id: priority
+    attributes:
+      label: 优先级
+      description: 这个功能对您有多重要？
+      options:
+        - 低 (nice to have)
+        - 中 (会很有用)
+        - 高 (非常需要)
+        - 紧急 (阻碍工作)
+    validations:
+      required: true
+  - type: textarea
+    id: additional
+    attributes:
+      label: 附加信息
+      description: 添加任何其他关于此功能的信息
+      placeholder: |
+        - 截图或设计图
+        - 使用场景
+        - 相关链接
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: 确认
+      description: 请确认以下几点
+      options:
+        - label: 我已经搜索了现有的功能请求，确保这是一个新建议
+          required: true
+        - label: 我愿意为这个功能的实现做出贡献
+          required: false

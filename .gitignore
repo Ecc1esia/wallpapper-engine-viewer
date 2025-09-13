@@ -1,0 +1,183 @@
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Production builds
+dist/
+dist-ssr/
+
+# Local env files
+.env
+.env.*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# System files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Tauri builds and artifacts
+src-tauri/target/
+src-tauri/gen/
+*.tgz
+*.tar.gz
+*.dmg
+*.app
+*.msi
+*.exe
+*.deb
+*.rpm
+*.snap
+*.AppImage
+
+# Temporary files
+*.tmp
+*.temp
+*.cache
+
+# OS generated files
+# Windows
+desktop.ini
+
+# Linux
+*~
+
+# macOS
+.AppleDouble
+.LSOverride
+
+# Project specific
+*.local
+coverage/
+.nyc_output/
+.jest/
+
+# Build tools
+.cache/
+.parcel-cache/
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# dotenv environment variables file
+.env
+.env.test
+.env.production
+
+# next.js build output
+.next
+
+# nuxt.js build output
+.nuxt
+
+# vuepress build output
+.vuepress/dist
+
+# Serverless directories
+.serverless/
+
+# FuseBox cache
+.fusebox/
+
+# DynamoDB Local files
+.dynamodb/
+
+# Tauri specific
+tauri.conf.json.backup
+*.backup
+*.bak
+
+# IDE - VSCode
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/snippets.json
+
+# IDE - JetBrains
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# IDE - Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Testing
+/coverage
+/.nyc_output
+
+# Temporary folders
+tmp/
+temp/
+
+# Logs
+logs
+*.log
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Package manager
+package-lock.json.backup
+yarn.lock.backup
+
+# Development
+dev-dist/
+debug/
+
+# Icons and assets
+src-tauri/icons/icon.icns
+src-tauri/icons/icon.ico
+
+# Build artifacts
+*.wixpdb
+*.cab
+*.msi
+*.msix
+*.appx
+*.deb
+*.rpm
+*.dmg
+*.pkg
+
+# Update artifacts
+*.zip
+*.tar
+*.gz

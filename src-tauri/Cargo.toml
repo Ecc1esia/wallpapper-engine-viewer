@@ -1,0 +1,23 @@
+[package]
+name = "wallpaper-engine-viewer"
+version = "0.1.0"
+description = "A Tauri app to view Wallpaper Engine videos"
+authors = ["you"]
+edition = "2021"
+
+[lib]
+name = "wallpaper_engine_viewer_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[[bin]]
+name = "wallpaper-engine-viewer"
+path = "src/main.rs"
+
+[dependencies]
+tauri = { version = "1.5", features = [ "dialog-open", "fs-all", "path-all", "shell-open"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+tokio = { version = "1.0", features = ["full"] }
+
+[build-dependencies]
+tauri-build = { version = "1.5", features = [] }

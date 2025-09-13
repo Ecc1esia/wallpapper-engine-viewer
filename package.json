@@ -1,0 +1,68 @@
+{
+  "name": "wallpaper-engine-viewer",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "tauri": "tauri",
+    "tauri dev": "tauri dev",
+    "tauri build": "tauri build",
+
+    "dev:clean": "npm run clean && npm run tauri dev",
+    "dev:debug": "npm run tauri dev -- --verbose",
+    "dev:inspect": "npm run tauri dev -- --debug",
+
+    "build:debug": "cd src-tauri && cargo build",
+    "build:release": "cd src-tauri && cargo build --release",
+    "build:all": "npm run build && npm run build:release",
+    "build:windows": "npm run tauri build -- --target x86_64-pc-windows-msvc",
+    "build:macos": "npm run tauri build -- --target x86_64-apple-darwin",
+    "build:linux": "npm run tauri build -- --target x86_64-unknown-linux-gnu",
+
+    "clean": "npm run clean:node && npm run clean:rust && npm run clean:dist",
+    "clean:node": "rm -rf node_modules package-lock.json",
+    "clean:rust": "cd src-tauri && cargo clean",
+    "clean:dist": "rm -rf dist",
+    "clean:cache": "npm cache clean --force && cargo clean",
+
+    "lint": "eslint src --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
+    "lint:check": "eslint src --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --ignore-path .gitignore",
+    "format": "prettier --write src/",
+    "format:check": "prettier --check src/",
+    "rust:format": "cd src-tauri && cargo fmt",
+    "rust:lint": "cd src-tauri && cargo clippy",
+    "rust:check": "cd src-tauri && cargo check",
+
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:e2e": "playwright test",
+    "test:rust": "cd src-tauri && cargo test",
+    "test:coverage": "vitest --coverage",
+
+    "package": "npm run tauri build",
+    "package:installer": "npm run tauri build -- --bundles msi,dmg,deb",
+    "package:portable": "npm run tauri build -- --bundles appimage",
+
+    "info": "npm run tauri -- info",
+    "version": "npm run tauri -- version",
+    "doctor": "npm run tauri -- doctor",
+    "update": "npm update && cargo update"
+  },
+  "dependencies": {
+    "@tauri-apps/api": "^1.5.3",
+    "vue": "^3.3.4"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^1.5.10",
+    "@vitejs/plugin-vue": "^4.3.4",
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.31",
+    "tailwindcss": "^3.3.5",
+    "typescript": "^5.0.2",
+    "vite": "^4.4.9",
+    "vue-tsc": "^1.8.5"
+  }
+}

@@ -1,0 +1,93 @@
+name: 🐛 Bug 报告
+description: 报告一个应用中的错误
+title: "[Bug] "
+labels: ["bug"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢您花时间填写这个错误报告！
+  - type: textarea
+    id: description
+    attributes:
+      label: 错误描述
+      description: 请清晰简洁地描述这个错误
+      placeholder: 告诉我们发生了什么！
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: 重现步骤
+      description: 告诉我们如何重现这个错误
+      placeholder: |
+        1. 打开应用...
+        2. 点击'...'...
+        3. 滚动到'...'...
+        4. 看到错误
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: 期望行为
+      description: 清晰简洁地描述您期望发生什么
+      placeholder: 告诉我们您认为应该发生什么！
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: 实际行为
+      description: 清晰简洁地描述实际发生了什么
+      placeholder: 告诉我们实际发生了什么！
+    validations:
+      required: true
+  - type: dropdown
+    id: os
+    attributes:
+      label: 操作系统
+      description: 您使用的是什么操作系统？
+      options:
+        - Windows 10
+        - Windows 11
+        - macOS Big Sur (11.x)
+        - macOS Monterey (12.x)
+        - macOS Ventura (13.x)
+        - macOS Sonoma (14.x)
+        - Ubuntu 20.04
+        - Ubuntu 22.04
+        - 其他 Linux 发行版
+    validations:
+      required: true
+  - type: dropdown
+    id: version
+    attributes:
+      label: 应用版本
+      description: 您使用的应用版本是什么？
+      options:
+        - v0.1.0
+        - 开发版本 (main branch)
+        - 其他 (请在说明中指定)
+    validations:
+      required: true
+  - type: textarea
+    id: additional
+    attributes:
+      label: 附加信息
+      description: 添加任何其他关于错误的信息
+      placeholder: |
+        - 截图
+        - 错误日志
+        - 其他相关细节
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: 确认
+      description: 请确认以下几点
+      options:
+        - label: 我已经搜索了现有的问题，确保这是一个新的错误报告
+          required: true
+        - label: 我已经尝试了最新版本
+          required: true

@@ -1,0 +1,19 @@
+{
+  "recommendations": [
+    "vue.volar",
+    "vue.vscode-typescript-vue-plugin",
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+    "rust-lang.rust-analyzer",
+    "tauri-apps.tauri-vscode",
+    "bradlc.vscode-tailwindcss",
+    "ms-vscode.vscode-typescript-next",
+    "christian-kohler.path-intellisense",
+    "streetsidesoftware.code-spell-checker",
+    "eamodio.gitlens",
+    "ms-vscode.vscode-json",
+    "redhat.vscode-yaml",
+    "github.vscode-pull-request-github",
+    "gruntfuggly.todo-tree"
+  ]
+}
