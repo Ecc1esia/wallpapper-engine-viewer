@@ -1,7 +1,5 @@
-<<<<<<< HEAD
-# wallpapper-engine-viewer
-用于小红车视频的viewer
-=======
+# 用于小红车视频的 viewer
+
 # Wallpaper Engine 视频查看器
 
 一个基于 Tauri + Vue 3 + Tailwind CSS 的桌面应用程序，用于管理和播放 Wallpaper Engine 中的视频文件。
@@ -29,6 +27,7 @@
 ### 1. 前置依赖安装
 
 #### macOS
+
 ```bash
 # 安装 Homebrew (如果尚未安装)
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -47,6 +46,7 @@ cargo --version
 ```
 
 #### Windows
+
 ```bash
 # 使用 winget 安装
 winget install Node.js
@@ -58,6 +58,7 @@ winget install Rustlang.Rust
 ```
 
 #### Linux (Ubuntu/Debian)
+
 ```bash
 # 安装 Node.js
 curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
@@ -110,6 +111,7 @@ npm run tauri dev
 ```
 
 **开发模式特性:**
+
 - 热重载支持
 - 开发工具集成
 - 自动重新编译 Rust 代码
@@ -118,7 +120,9 @@ npm run tauri dev
 ### 调试方法
 
 #### 前端调试
+
 1. **浏览器开发者工具**:
+
    - 在开发模式下，按 `F12` 或右键选择"检查"
    - 支持 Vue DevTools 扩展
    - 控制台日志和网络监控
@@ -131,7 +135,9 @@ npm run tauri dev
    ```
 
 #### 后端调试
+
 1. **Rust 日志**:
+
    ```rust
    // 在 main.rs 或 commands.rs 中添加日志
    println!("扫描路径: {}", path);
@@ -139,10 +145,12 @@ npm run tauri dev
    ```
 
 2. **Tauri 开发工具**:
+
    - 开发模式下会自动显示控制台窗口
    - 查看 `src-tauri/target/debug/` 目录下的日志文件
 
 3. **常用调试命令**:
+
    ```bash
    # 检查 Rust 代码编译
    cd src-tauri && cargo check
@@ -157,6 +165,7 @@ npm run tauri dev
 #### 常见问题解决
 
 1. **端口占用**:
+
    ```bash
    # 查找占用 1420 端口的进程
    lsof -ti:1420 | xargs kill -9
@@ -166,6 +175,7 @@ npm run tauri dev
    ```
 
 2. **依赖问题**:
+
    ```bash
    # 清理 Node.js 缓存
    npm cache clean --force
@@ -209,6 +219,7 @@ npm run tauri build -- --target x86_64-unknown-linux-gnu # Linux
 ```
 
 **打包输出位置:**
+
 - Windows: `src-tauri/target/release/bundle/msi/`
 - macOS: `src-tauri/target/release/bundle/dmg/`
 - Linux: `src-tauri/target/release/bundle/deb/` 或 `appimage/`
@@ -216,7 +227,9 @@ npm run tauri build -- --target x86_64-unknown-linux-gnu # Linux
 ### 高级构建选项
 
 #### 自定义构建配置
+
 编辑 `src-tauri/tauri.conf.json`:
+
 ```json
 {
   "tauri": {
@@ -232,6 +245,7 @@ npm run tauri build -- --target x86_64-unknown-linux-gnu # Linux
 ```
 
 #### 代码签名
+
 ```bash
 # Windows 代码签名
 npm run tauri build -- --bundles msi --sign
@@ -245,6 +259,7 @@ npm run tauri build -- --bundles dmg --sign
 ### 安装程序分发
 
 #### Windows (MSI)
+
 ```bash
 # 构建 MSI 安装包
 npm run tauri build -- --bundles msi
@@ -253,6 +268,7 @@ npm run tauri build -- --bundles msi
 ```
 
 #### macOS (DMG)
+
 ```bash
 # 构建 DMG 镜像文件
 npm run tauri build -- --bundles dmg
@@ -261,6 +277,7 @@ npm run tauri build -- --bundles dmg
 ```
 
 #### Linux (DEB/RPM)
+
 ```bash
 # 构建 DEB 包 (Ubuntu/Debian)
 npm run tauri build -- --bundles deb
@@ -275,6 +292,7 @@ npm run tauri build -- --bundles appimage
 ### 自动更新
 
 配置自动更新功能 (在 `src-tauri/tauri.conf.json` 中):
+
 ```json
 {
   "tauri": {
@@ -291,13 +309,16 @@ npm run tauri build -- --bundles appimage
 ## 性能优化
 
 ### 前端优化
+
 1. **代码分割**:
+
    ```javascript
    // 懒加载组件
    const VideoViewer = defineAsyncComponent(() => import('./components/VideoViewer.vue'))
    ```
 
 2. **图片优化**:
+
    ```vue
    <template>
      <img
@@ -316,7 +337,9 @@ npm run tauri build -- --bundles appimage
    ```
 
 ### 后端优化
+
 1. **异步处理**:
+
    ```rust
    #[tauri::command]
    pub async fn scan_wallpaper_videos(path: String) -> Result<Vec<Value>, String> {
@@ -339,6 +362,7 @@ npm run tauri build -- --bundles appimage
 ## 测试
 
 ### 单元测试
+
 ```bash
 # 运行 Rust 测试
 cd src-tauri && cargo test
@@ -348,6 +372,7 @@ cd src-tauri && cargo test scan_videos
 ```
 
 ### 端到端测试
+
 ```bash
 # 安装测试依赖
 npm install --save-dev @playwright/test
@@ -357,6 +382,7 @@ npm run test:e2e
 ```
 
 ### 性能测试
+
 ```bash
 # 使用 Lighthouse 进行性能审计
 npm run audit
@@ -370,21 +396,27 @@ npm run analyze:memory
 ### 常见错误
 
 1. **编译错误**:
+
    ```
    error: OUT_DIR env var is not set
    ```
+
    解决: 确保 `build.rs` 文件存在且 `tauri-build` 依赖已添加
 
 2. **图标缺失**:
+
    ```
    failed to read icon /icons/32x32.png
    ```
+
    解决: 运行 `npm run tauri icon` 创建图标文件
 
 3. **权限错误**:
+
    ```
    Permission denied: fs::read_dir
    ```
+
    解决: 检查 `tauri.conf.json` 中的权限设置
 
 4. **平台特定问题**:
@@ -393,6 +425,7 @@ npm run analyze:memory
    - **Linux**: 确保所有系统依赖已安装
 
 ### 日志收集
+
 ```bash
 # 查看应用日志
 # macOS
@@ -408,6 +441,7 @@ npm run analyze:memory
 ## 贡献指南
 
 ### 开发流程
+
 1. Fork 项目仓库
 2. 创建功能分支: `git checkout -b feature/new-feature`
 3. 提交更改: `git commit -m 'Add new feature'`
@@ -415,11 +449,13 @@ npm run analyze:memory
 5. 创建 Pull Request
 
 ### 代码规范
+
 - 遵循 ESLint 和 Prettier 配置
 - Rust 代码遵循 `cargo fmt` 和 `cargo clippy`
 - 提交信息使用 Conventional Commits 格式
 
 ### 提交前检查
+
 ```bash
 # 格式化代码
 npm run format
@@ -449,7 +485,7 @@ cargo test
 - **前端**：Vue 3 + TypeScript + Tailwind CSS
 - **后端**：Tauri + Rust
 - **构建工具**：Vite
-- **UI组件**：自定义组件，使用 Tailwind CSS 样式
+- **UI 组件**：自定义组件，使用 Tailwind CSS 样式
 
 ## 项目结构
 
@@ -498,10 +534,11 @@ MIT License - 详见 [LICENSE](LICENSE) 文件
 ## 更新日志
 
 ### v0.1.0 (2024-01-XX)
+
 - ✨ 初始版本发布
 - 🎬 基础视频浏览功能
 - 🔍 搜索和排序功能
 - 🎯 系统播放器集成
 - 💾 路径设置保存
 - 🎨 现代化 UI 设计
->>>>>>> e442ec5 (Initial commit: Wallpaper Engine Viewer)
+  > > > > > > > e442ec5 (Initial commit: Wallpaper Engine Viewer)
